@@ -1,0 +1,7 @@
+- job_name: 'erigon'
+  scrape_interval: 10s
+  scrape_timeout: 3s
+  metrics_path: /debug/metrics/prometheus
+  scheme: http
+  static_configs:
+    - targets: ['localhost:6060']
