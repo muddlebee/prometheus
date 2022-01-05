@@ -68,10 +68,15 @@ scrape_configs:
   - job_name: 'lighthouse_metrics'
       # Override the global default and scrape targets from this job every 5 seconds.
     scrape_interval: 5s
-    
     metrics_path: /metrics
-    static_configs:
-      - targets: ['lighthouse_beacon:5054']
+    dns_sd_configs:
+    - names:
+      - 'tasks.lighthouse_beacon'
+      type: 'A'
+      port: 5054    
+    
+    # static_configs:
+    #   - targets: ['lighthouse_beacon:5054']
 
 #  - job_name: 'pushgateway'
 #    scrape_interval: 10s
