@@ -76,7 +76,8 @@ services:
       - 3000:3000
     volumes:
       - grafana_data:/var/lib/grafana
-      - ./grafana/provisioning/:/etc/grafana/provisioning/
+      - ./grafana/ethereum/consensus-client/lighthouse/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/ethereum/consensus-client/lighthouse/datasources:/etc/grafana/provisioning/datasources
     env_file:
       - ./grafana/config.monitoring
     restart: always
